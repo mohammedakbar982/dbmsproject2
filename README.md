@@ -62,7 +62,8 @@ ORDER BY distance DESC;
 
 This is a SQL query that retrieves the place, magnitude, time, latitude, longitude, distance, and earthquake magnitude classification for all earthquakes in a table named "earthquakes_table." The results are ordered by the distance from the epicenter of each earthquake in descending order.
 
-![2DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/4a0c1452-87f2-4c24-a79a-bb6929088428)
+![2DBMS1](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/7c1c3001-1c10-4fa3-bf30-4251a9854d9c)
+
 
 
 ### 3. Calculate Areas oF Intrests
