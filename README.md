@@ -57,7 +57,6 @@ FROM earthquakes_table
 ORDER BY distance DESC;
 ```
 
-![Untitled](results/Untitled%201.png)
 
 ### 3. Calculate Areas oF Intrests
 
