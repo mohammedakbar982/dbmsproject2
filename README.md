@@ -32,7 +32,7 @@ SELECT time, latitude, longitiude, place
 FROM earthquakes_table
 WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md';
 ```
-
+This is a SQL query that retrieves the time, latitude, longitude, and place of earthquakes with a magnitude of 4.0 or less, a type of "earthquake," and a magnitude type of "md" from a table named "earthquakes_table."
 
 ### 2. Calculate Distance between locations
 
@@ -57,6 +57,8 @@ FROM earthquakes_table
 ORDER BY distance DESC;
 ```
 
+This is a SQL query that retrieves the place, magnitude, time, latitude, longitude, distance, and earthquake magnitude classification for all earthquakes in a table named "earthquakes_table." The results are ordered by the distance from the epicenter of each earthquake in descending order.
+
 ### 3. Calculate Areas oF Intrests
 
 
@@ -69,11 +71,90 @@ GROUP BY place
 HAVING COUNT(*) >= 10
 ORDER BY num_earthquakes DESC, avg_magnitude DESC;
 ```
+This is a SQL query that retrieves the place, the number of earthquakes, the average magnitude, the maximum magnitude, and the minimum magnitude of earthquakes that occurred between January 1, 2022, and May 11, 2023, from a table named "earthquakes_table". The results are grouped by place, but only include places where there have been at least 10 earthquakes during the specified time period. The results are then sorted by the number of earthquakes in descending order, and then by the average magnitude in descending order.
 
 
 ### 4. Analyze the queries
+1)
+```
+SELECT time, latitude, longitude, place
+FROM earthquakes_table
+WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md';
+```
 
+Here's a breakdown of what each part of the query does:
 
+- `SELECT time, latitude, longitude, place` specifies the columns to be returned in the result set. In this case, we want the time, latitude, longitude, and place columns.
+- `FROM earthquakes_table` specifies the table from which to retrieve the data. In this case, the table is named "earthquakes_table."
+- `WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md'` specifies the conditions that the rows must meet in order to be included in the result set. In this case, we want only earthquakes with a magnitude of 4.0 or less, a type of "earthquake," and a magnitude type of "md."
+
+----
+
+2)
+```
+SELECT 
+    place, 
+    mag, 
+    time, 
+    latitude, 
+    longitiude, 
+    SQRT(POWER(69.1 * (latitude - 45.3251), 2) + POWER(69.1 * (-69.8856 - longitiude) * COS(latitude / 55.7), 2)) AS distance,
+    CASE 
+        WHEN mag < 2 THEN 'Minor' 
+        WHEN mag BETWEEN 2 AND 3.9 THEN 'Light' 
+        WHEN mag BETWEEN 4 AND 5.9 THEN 'Moderate' 
+        WHEN mag BETWEEN 6 AND 6.9 THEN 'Strong' 
+        WHEN mag BETWEEN 7 AND 7.9 THEN 'Major' 
+        ELSE 'Great' 
+    END 
+    
+FROM earthquakes_table
+ORDER BY distance DESC;
+```
+
+- `SELECT place, mag, time, latitude, longitiude,` specifies the columns to be returned in the result set. In this case, we want the place, magnitude, time, latitude, and longitude columns.
+- `SQRT(POWER(69.1 * (latitude - 45.3251), 2) + POWER(69.1 * (-69.8856 - longitiude) * COS(latitude / 55.7), 2)) AS distance` calculates the distance between the earthquake's epicenter and a reference location (latitude 45.3251, longitude -69.8856) using the Haversine formula, which takes into account the curvature of the Earth. The distance is returned as a new column called "distance."
+- `CASE WHEN mag < 2 THEN 'Minor' WHEN mag BETWEEN 2 AND 3.9 THEN 'Light' WHEN mag BETWEEN 4 AND 5.9 THEN 'Moderate' WHEN mag BETWEEN 6 AND 6.9 THEN 'Strong' WHEN mag BETWEEN 7 AND 7.9 THEN 'Major' ELSE 'Great' END` assigns a earthquake magnitude classification to each earthquake based on its magnitude, and returns it as a new column called "Mag_Classification."
+- `FROM earthquakes_table` specifies the table from which to retrieve the data. In this case, the table is named "earthquakes_table."
+- `ORDER BY distance DESC` sorts the results by the "distance" column in descending order.
+
+----
+3)
+```
+SELECT place, COUNT(*) as num_earthquakes, AVG(mag) as avg_magnitude, 
+       MAX(mag) as max_magnitude, MIN(mag) as min_magnitude
+```
+
+- `SELECT place` specifies the column to be returned in the result set. In this case, we want the place column.
+- `COUNT(*) as num_earthquakes` counts the number of earthquakes for each place and returns it as a new column called "num_earthquakes."
+- `AVG(mag) as avg_magnitude` calculates the average magnitude of earthquakes for each place and returns it as a new column called "avg_magnitude."
+- `MAX(mag) as max_magnitude` finds the maximum magnitude of earthquakes for each place and returns it as a new column called "max_magnitude."
+- `MIN(mag) as min_magnitude` finds the minimum magnitude of earthquakes for each place and returns it as a new column called "min_magnitude."
+
+```
+FROM earthquakes_table
+WHERE time BETWEEN '2022-01-01' AND '2023-05-11'
+```
+
+- `FROM earthquakes_table` specifies the table from which to retrieve the data. In this case, the table is named "earthquakes_table."
+- `WHERE time BETWEEN '2022-01-01' AND '2023-05-11'` specifies the condition that the earthquakes must have occurred between January 1, 2022, and May 11, 2023, to be included in the result set.
+
+```
+GROUP BY place
+HAVING COUNT(*) >= 10
+```
+
+- `GROUP BY place` groups the earthquakes by place.
+- `HAVING COUNT(*) >= 10` specifies that only places where there have been at least 10 earthquakes during the specified time period should be included in the result set.
+
+```
+ORDER BY num_earthquakes DESC, avg_magnitude DESC;
+```
+
+- `ORDER BY num_earthquakes DESC, avg_magnitude DESC` sorts the results by the "num_earthquakes" column in descending order, and then by the "avg_magnitude" column in descending order.
+
+----
+4)
 ```sql
 SELECT COUNT(*) as num_earthquakes, AVG(mag) as avg_magnitude, nst as nst
 FROM earthquakes_table
@@ -81,6 +162,32 @@ WHERE place LIKE '%California%'
 GROUP BY nst
 ORDER BY nst ASC;
 ```
+
+Here's a breakdown of what each part of the query does:
+
+```
+SELECT COUNT(*) as num_earthquakes, AVG(mag) as avg_magnitude, nst as nst
+```
+
+- `SELECT COUNT(*) as num_earthquakes` counts the number of earthquakes and returns it as a new column called "num_earthquakes."
+- `AVG(mag) as avg_magnitude` calculates the average magnitude of earthquakes and returns it as a new column called "avg_magnitude."
+- `nst as nst` specifies the "nst" column to be returned in the result set.
+
+```
+FROM earthquakes_table
+WHERE place LIKE '%California%'
+```
+
+- `FROM earthquakes_table` specifies the table from which to retrieve the data. In this case, the table is named "earthquakes_table."
+- `WHERE place LIKE '%California%'` specifies the condition that the "place" column must contain the string "California" to be included in the result set.
+
+```
+GROUP BY nst
+ORDER BY nst ASC;
+```
+
+- `GROUP BY nst` groups the earthquakes by the "nst" value.
+- `ORDER BY nst ASC` sorts the results by the "nst" value in ascending order.
 
 
 ### 5. Sorting and Limit Executions
