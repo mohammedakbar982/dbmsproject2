@@ -239,6 +239,7 @@ ORDER BY num_earthquakes DESC;
 - `HAVING COUNT(*) >= 10` specifies the condition that the count of earthquakes must be at least 10 for a specific location to be included in the result set.
 - `ORDER BY num_earthquakes DESC` sorts the results by the "num_earthquakes" column in descending order.
 
+![4DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/07655a03-5327-4307-96c3-26c02a5eee46)
 
 ### 6. Optimize the queries to speed up execution time
 
@@ -252,6 +253,8 @@ WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md';
 ```
 
 The first statement creates an index on the "mag" and "magType" columns of the "earthquakes_table" table. The purpose of creating an index is to improve query performance by allowing the database management system to quickly locate and retrieve the data needed to satisfy a query.
+
+![5DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/95ace74e-07b2-4f00-b1ad-4dbdbe33f683)
 
 ----
 
@@ -278,6 +281,8 @@ ORDER BY distance DESC;
 ```
 The purpose of this query is to retrieve earthquake data sorted by the distance from a reference point, which is calculated based on the latitude and longitude of each earthquake. The index created on the "latitude" and "longitude" columns can be used to speed up the sorting process, as the database management system can use the index to quickly locate and sort the relevant data.
 
+![6DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/fa629dac-8559-4a60-8457-c0f476fdc05e)
+
 ----
 
 ```sql
@@ -290,6 +295,8 @@ HAVING COUNT(*) >= 10
 ORDER BY num_earthquakes DESC;
 ```
 The purpose of this query is to retrieve earthquake data grouped by location, with aggregate statistics on the number and magnitude of earthquakes. The index created on the "place" column can be used to speed up the grouping process, as the database management system can use the index to quickly locate and group the relevant data.
+
+![7DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/854872be-37eb-418d-9398-0d346f3d28af)
 
 
 ### 7. N-Optimization of queries
@@ -318,5 +325,7 @@ The query is optimized by first grouping the data by location and aggregating th
 The syntax for this query uses a subquery to first group and aggregate the data, and then filters and sorts the results in the outer query. The "AS" keyword is used to give the subquery a name, which can then be referred to in the outer query. The "%California%" wildcard is used in the WHERE clause to match any place that contains the string "California" in it.
 
 The query can be further optimized by creating an index on the "place" column of the "earthquakes_table" table, which can speed up the grouping and filtering processes.
+
+![8DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/f0c05e5f-06ae-4958-a9c8-d02445ba42f7)
 
 
