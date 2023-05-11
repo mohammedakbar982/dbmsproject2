@@ -325,7 +325,7 @@ The purpose of this query is to retrieve earthquake data grouped by location, wi
 
 ![3DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/6d6bfe66-f406-4a74-bc3e-4cf269340a18)
 
-BY PERFORMING THIS QUERY OUR EXCUTION TIME GOT IMPROVED FROM *121ms to *85ms
+BY PERFORMING THIS QUERY OUR EXCUTION TIME GOT IMPROVED FROM *98ms to *85ms
 
 ----
 
