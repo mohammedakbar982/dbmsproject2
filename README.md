@@ -346,23 +346,15 @@ N Optimization is a query optimization technique that aims to improve the perfor
 We can add a LIMIT clause to limit the number of results returned, and a ORDER BY clause to sort the results by distance. 
 
 ```sql
-SELECT *
-FROM (
-  SELECT place, COUNT(*) as num_earthquakes, AVG(mag) as avg_magnitude
-  FROM earthquakes_table
-  WHERE time BETWEEN '2022-01-01' AND '2023-05-11'
-  GROUP BY place
-  HAVING COUNT(*) >= 10
-) AS results
-WHERE place LIKE '%California%'
-ORDER BY num_earthquakes DESC;
+SELECT place, mag
+FROM earthquakes_table
+WHERE latitude > 30 AND longitiude < -100
+  AND mag > 3.0
+ORDER BY mag ASC
+LIMIT 13;
 ```
 
-The purpose of this query is to retrieve earthquake data for locations in California that had at least 10 earthquakes between January 1, 2022, and May 11, 2023. The query groups the data by location and calculates aggregate statistics on the number and average magnitude of earthquakes.
-
-The query is optimized by first grouping the data by location and aggregating the earthquake count and average magnitude for each location, and then filtering the results to only include locations in California. By doing this, the query reduces the amount of data that needs to be processed in the filtering stage, which can improve performance.
-
-The syntax for this query uses a subquery to first group and aggregate the data, and then filters and sorts the results in the outer query. The "AS" keyword is used to give the subquery a name, which can then be referred to in the outer query. The "%California%" wildcard is used in the WHERE clause to match any place that contains the string "California" in it.
+The SQL query selects the columns "place" and "mag" from a table called "earthquakes_table". The query filters the results to only include rows where the latitude is greater than 30 and the longitude is less than -100, and where the magnitude is greater than 3.0. The results are then sorted in ascending order based on the "mag" column and limited to the first 13 rows.
 
 The query can be further optimized by creating an index on the "place" column of the "earthquakes_table" table, which can speed up the grouping and filtering processes.
 
