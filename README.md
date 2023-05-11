@@ -89,6 +89,13 @@ This is a SQL query that retrieves the place, the number of earthquakes, the ave
 ----
 
 ### 4. Analyze the queries
+
+```
+BEGIN;
+    EXPLAIN ANALYZE 
+	select * from public.earthquakes_table ;
+```
+
 1)
 ```
 SELECT time, latitude, longitude, place
