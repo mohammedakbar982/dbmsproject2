@@ -96,6 +96,9 @@ BEGIN;
 	select * from public.earthquakes_table ;
 ```
 
+![41](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/76422696-7e2e-4180-bd7b-eb13cc4fc1ab)
+
+
 1)
 ```
 SELECT time, latitude, longitude, place
