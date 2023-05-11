@@ -253,7 +253,7 @@ ORDER BY num_earthquakes DESC;
 ### 6. Optimize the queries to speed up execution time
 
 To speed up the search process, we create an index on the fclass field. And run ANALYZE after creating indexes
-
+1)
 ```sql
 CREATE INDEX index_place ON earthquakes_table(mag, magType);
 SELECT time, latitude, longitiude, place
@@ -266,7 +266,7 @@ The first statement creates an index on the "mag" and "magType" columns of the "
 ![61](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/4a33e525-61cc-4789-b6a3-a860ac333863)
 
 ----
-
+2)
 ```sql
 CREATE INDEX index_lat_long ON earthquakes_table (latitude, longitiude);
 SELECT 
@@ -293,7 +293,7 @@ The purpose of this query is to retrieve earthquake data sorted by the distance 
 ![62](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/8248f16a-2539-4bdd-aae9-64735646a193)
 
 ----
-
+3)
 ```sql
 CREATE INDEX mag_type_index ON earthquakes_table (place);
 SELECT place, COUNT(*) as num_earthquakes, AVG(mag) as avg_magnitude
