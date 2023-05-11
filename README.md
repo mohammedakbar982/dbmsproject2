@@ -18,7 +18,8 @@ Creating a Geographic Information System (GIS) Analysis: A project that involves
 
 ### INTRODUCTION
 
-This entire project is done in postgresql (PGAdmin4) with extracted data from https://www.usgs.gov/programs/earthquake-hazards....... the CSV file used for this project is earthquake_data.csv
+This entire project is done in postgresql (PGAdmin4) with extracted data from https://www.usgs.gov/programs/earthquake-hazards....... the CSV file used for this project is [earthquake_data.csv](https://github.com/mohammedakbar982/dbmsproject2/files/11454330/earthquake_data.csv)
+
 
 ----
 
