@@ -201,6 +201,36 @@ HAVING COUNT(*) >= 10
 ORDER BY num_earthquakes DESC;
 ```
 
+This is a SQL query that retrieves the count of earthquakes, the average magnitude of earthquakes, and the place for earthquakes that occurred between January 1, 2022, and May 11, 2023, and have occurred at least 10 times in a specific location. The results are grouped by the "place" column and sorted by the "num_earthquakes" column in descending order. 
+
+Here's a breakdown of what each part of the query does:
+
+```
+SELECT place, COUNT(*) as num_earthquakes, AVG(mag) as avg_magnitude
+```
+
+- `SELECT place` specifies the "place" column to be returned in the result set.
+- `COUNT(*) as num_earthquakes` counts the number of earthquakes and returns it as a new column called "num_earthquakes."
+- `AVG(mag) as avg_magnitude` calculates the average magnitude of earthquakes and returns it as a new column called "avg_magnitude."
+
+```
+FROM earthquakes_table
+WHERE time BETWEEN '2022-01-01' AND '2023-05-11'
+```
+
+- `FROM earthquakes_table` specifies the table from which to retrieve the data. In this case, the table is named "earthquakes_table."
+- `WHERE time BETWEEN '2022-01-01' AND '2023-05-11'` specifies the condition that the "time" column must be between January 1, 2022, and May 11, 2023, to be included in the result set.
+
+```
+GROUP BY place
+HAVING COUNT(*) >= 10
+ORDER BY num_earthquakes DESC;
+```
+
+- `GROUP BY place` groups the earthquakes by the "place" column.
+- `HAVING COUNT(*) >= 10` specifies the condition that the count of earthquakes must be at least 10 for a specific location to be included in the result set.
+- `ORDER BY num_earthquakes DESC` sorts the results by the "num_earthquakes" column in descending order.
+
 
 ### 6. Optimize the queries to speed up execution time
 
@@ -214,6 +244,8 @@ WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md';
 ```
 
 The first statement creates an index on the "mag" and "magType" columns of the "earthquakes_table" table. The purpose of creating an index is to improve query performance by allowing the database management system to quickly locate and retrieve the data needed to satisfy a query.
+
+----
 
 ```sql
 CREATE INDEX index_lat_long ON earthquakes_table (latitude, longitude);
@@ -237,6 +269,8 @@ FROM earthquakes_table
 ORDER BY distance DESC;
 ```
 The purpose of this query is to retrieve earthquake data sorted by the distance from a reference point, which is calculated based on the latitude and longitude of each earthquake. The index created on the "latitude" and "longitude" columns can be used to speed up the sorting process, as the database management system can use the index to quickly locate and sort the relevant data.
+
+----
 
 ```sql
 CREATE INDEX mag_type_index ON earthquakes_table (place);
