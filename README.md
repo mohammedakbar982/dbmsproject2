@@ -279,6 +279,8 @@ The first statement creates an index on the "mag" and "magType" columns of the "
 
 ![61](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/4a33e525-61cc-4789-b6a3-a860ac333863)
 
+BY PERFORMING THIS QUERY OUR EXCUTION TIME GOT IMPROVED FROM *115ms to *83ms
+
 ----
 2)
 ```sql
@@ -306,6 +308,8 @@ The purpose of this query is to retrieve earthquake data sorted by the distance 
 
 ![62](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/8248f16a-2539-4bdd-aae9-64735646a193)
 
+BY PERFORMING THIS QUERY OUR EXCUTION TIME GOT IMPROVED FROM *138ms to *124ms
+
 ----
 3)
 ```sql
@@ -320,6 +324,9 @@ ORDER BY num_earthquakes DESC;
 The purpose of this query is to retrieve earthquake data grouped by location, with aggregate statistics on the number and magnitude of earthquakes. The index created on the "place" column can be used to speed up the grouping process, as the database management system can use the index to quickly locate and group the relevant data.
 
 ![3DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/6d6bfe66-f406-4a74-bc3e-4cf269340a18)
+
+BY PERFORMING THIS QUERY OUR EXCUTION TIME GOT IMPROVED FROM *121ms to *85ms
+
 ----
 
 ### 7. N-Optimization of queries
