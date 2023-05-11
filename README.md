@@ -252,7 +252,8 @@ ORDER BY num_earthquakes DESC;
 
 ### 6. Optimize the queries to speed up execution time
 
-To speed up the search process, we create an index on the fclass field. And run ANALYZE after creating indexes
+To speed up the search process, we create an index on class.
+
 1)
 ```sql
 CREATE INDEX index_place ON earthquakes_table(mag, magType);
