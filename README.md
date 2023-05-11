@@ -14,17 +14,19 @@ Creating a Geographic Information System (GIS) Analysis: A project that involves
 8. Presentation and Posting to Individual GitHub (5 marks)
 9. Code functionality, documentation and proper output provided (5marks)
 
----
+----
 
 ### INTRODUCTION
 
 This entire project is done in postgresql (PGAdmin4) with extracted data from https://www.usgs.gov/programs/earthquake-hazards....... the CSV file used for this project is earthquake_data.csv
 
----
+----
 
 Created the table using query .. inside the public schema after creating the database for this project....
 
-### 1. Retrieve Locations of 
+----
+
+### 1. Retrieve Locations of pecific features
 
 
 ```sql
@@ -36,6 +38,7 @@ This is a SQL query that retrieves the time, latitude, longitude, and place of e
 
 ![1DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/442d2415-8cb1-4986-924c-973ab52a21c2)
 
+----
 
 ### 2. Calculate Distance between locations
 
@@ -64,7 +67,7 @@ This is a SQL query that retrieves the place, magnitude, time, latitude, longitu
 
 ![2DBMS1](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/7c1c3001-1c10-4fa3-bf30-4251a9854d9c)
 
-
+----
 
 ### 3. Calculate Areas oF Intrests
 
@@ -82,6 +85,7 @@ This is a SQL query that retrieves the place, the number of earthquakes, the ave
 
 ![3DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/6d6bfe66-f406-4a74-bc3e-4cf269340a18)
 
+----
 
 ### 4. Analyze the queries
 1)
@@ -198,6 +202,7 @@ ORDER BY nst ASC;
 - `GROUP BY nst` groups the earthquakes by the "nst" value.
 - `ORDER BY nst ASC` sorts the results by the "nst" value in ascending order.
 
+----
 
 ### 5. Sorting and Limit Executions
 
@@ -241,6 +246,8 @@ ORDER BY num_earthquakes DESC;
 - `ORDER BY num_earthquakes DESC` sorts the results by the "num_earthquakes" column in descending order.
 
 ![4DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/07655a03-5327-4307-96c3-26c02a5eee46)
+
+----
 
 ### 6. Optimize the queries to speed up execution time
 
@@ -299,6 +306,7 @@ The purpose of this query is to retrieve earthquake data grouped by location, wi
 
 ![7DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/854872be-37eb-418d-9398-0d346f3d28af)
 
+----
 
 ### 7. N-Optimization of queries
 
