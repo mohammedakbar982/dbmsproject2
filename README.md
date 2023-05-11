@@ -84,7 +84,7 @@ ORDER BY num_earthquakes DESC, avg_magnitude DESC;
 ```
 This is a SQL query that retrieves the place, the number of earthquakes, the average magnitude, the maximum magnitude, and the minimum magnitude of earthquakes that occurred between January 1, 2022, and May 11, 2023, from a table named "earthquakes_table". The results are grouped by place, but only include places where there have been at least 10 earthquakes during the specified time period. The results are then sorted by the number of earthquakes in descending order, and then by the average magnitude in descending order.
 
-![3DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/6d6bfe66-f406-4a74-bc3e-4cf269340a18)
+![63](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/280db042-5936-477c-a8c2-fe475f865628)
 
 ----
 
@@ -263,7 +263,7 @@ WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md';
 
 The first statement creates an index on the "mag" and "magType" columns of the "earthquakes_table" table. The purpose of creating an index is to improve query performance by allowing the database management system to quickly locate and retrieve the data needed to satisfy a query.
 
-![5DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/95ace74e-07b2-4f00-b1ad-4dbdbe33f683)
+![61](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/4a33e525-61cc-4789-b6a3-a860ac333863)
 
 ----
 
@@ -290,7 +290,7 @@ ORDER BY distance DESC;
 ```
 The purpose of this query is to retrieve earthquake data sorted by the distance from a reference point, which is calculated based on the latitude and longitude of each earthquake. The index created on the "latitude" and "longitude" columns can be used to speed up the sorting process, as the database management system can use the index to quickly locate and sort the relevant data.
 
-![6DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/fa629dac-8559-4a60-8457-c0f476fdc05e)
+![62](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/8248f16a-2539-4bdd-aae9-64735646a193)
 
 ----
 
