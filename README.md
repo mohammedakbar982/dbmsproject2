@@ -34,6 +34,9 @@ WHERE mag <= 4.0 AND type = 'earthquake' AND magType = 'md';
 ```
 This is a SQL query that retrieves the time, latitude, longitude, and place of earthquakes with a magnitude of 4.0 or less, a type of "earthquake," and a magnitude type of "md" from a table named "earthquakes_table."
 
+![1DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/442d2415-8cb1-4986-924c-973ab52a21c2)
+
+
 ### 2. Calculate Distance between locations
 
 ```sql
