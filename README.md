@@ -268,7 +268,7 @@ The first statement creates an index on the "mag" and "magType" columns of the "
 ----
 
 ```sql
-CREATE INDEX index_lat_long ON earthquakes_table (latitude, longitude);
+CREATE INDEX index_lat_long ON earthquakes_table (latitude, longitiude);
 SELECT 
     place, 
     mag, 
@@ -305,8 +305,7 @@ ORDER BY num_earthquakes DESC;
 ```
 The purpose of this query is to retrieve earthquake data grouped by location, with aggregate statistics on the number and magnitude of earthquakes. The index created on the "place" column can be used to speed up the grouping process, as the database management system can use the index to quickly locate and group the relevant data.
 
-![7DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/854872be-37eb-418d-9398-0d346f3d28af)
-
+![3DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/6d6bfe66-f406-4a74-bc3e-4cf269340a18)
 ----
 
 ### 7. N-Optimization of queries
