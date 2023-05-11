@@ -79,6 +79,8 @@ ORDER BY num_earthquakes DESC, avg_magnitude DESC;
 ```
 This is a SQL query that retrieves the place, the number of earthquakes, the average magnitude, the maximum magnitude, and the minimum magnitude of earthquakes that occurred between January 1, 2022, and May 11, 2023, from a table named "earthquakes_table". The results are grouped by place, but only include places where there have been at least 10 earthquakes during the specified time period. The results are then sorted by the number of earthquakes in descending order, and then by the average magnitude in descending order.
 
+![3DBMS](https://github.com/mohammedakbar982/dbmsproject2/assets/133189360/6d6bfe66-f406-4a74-bc3e-4cf269340a18)
+
 
 ### 4. Analyze the queries
 1)
